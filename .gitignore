@@ -1,0 +1,9 @@
+# macOS
+.DS_Store
+
+# Editor cruft
+.vscode/
+*.swp
+
+# Unused source photo (the site uses assets/profile.jpg)
+IMG_9978.heic
