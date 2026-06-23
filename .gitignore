@@ -5,5 +5,6 @@
 .vscode/
 *.swp
 
-# Unused source photo (the site uses assets/profile.jpg)
-IMG_9978.heic
+# Source photos — the site uses assets/profile.jpg; raw HEIC isn't
+# web-displayable (and macOS makes "… 2.heic" duplicates), so keep them out.
+*.heic
