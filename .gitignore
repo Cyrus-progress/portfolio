@@ -8,3 +8,6 @@
 # Source photos — the site uses assets/profile.jpg; raw HEIC isn't
 # web-displayable (and macOS makes "… 2.heic" duplicates), so keep them out.
 *.heic
+
+# Local Claude Code tooling (preview launch config + uploaded skills) — not site content
+.claude/
