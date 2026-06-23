@@ -47,7 +47,7 @@ const PROJECTS = [
     ],
     tags: ["AI / ML", "Healthcare", "Cerebras", "Team project", "Web"],
     links: [
-      { label: "Notion",      href: "#" },
+      { label: "Notion",      href: "https://aboard-bucket-e6a.notion.site/Cerebras-f9e8252082df836ba2f00137bdecb9b7" },
       { label: "GitHub",      href: "#" },
       { label: "Live demo",   href: "#" },
       { label: "Pitch video", href: "#" }
