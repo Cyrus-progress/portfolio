@@ -47,7 +47,7 @@ const PROJECTS = [
     ],
     tags: ["AI / ML", "Healthcare", "Cerebras", "Team project", "Web"],
     links: [
-      { label: "Notion",      href: "https://aboard-bucket-e6a.notion.site/Cerebras-f9e8252082df836ba2f00137bdecb9b7" },
+      { label: "Notion",      href: "https://aboard-bucket-e6a.notion.site/Sepsis-Guard-3888252082df80aea548f0383a4054ca" },
       { label: "GitHub",      href: "https://github.com/payman12/sepsis-reflex" },
       { label: "Live demo",   href: "https://sepsis-guard-now.base44.app/" },
       { label: "Demo video",  href: "https://www.loom.com/share/a9edeaef08cb468c9802edba34cc0943" }
