@@ -157,40 +157,6 @@ const PROJECTS = [
       { label: "Notion",    href: "#" },
       { label: "Live demo", href: "#" }
     ]
-  },
-  {
-    id: "gallery",
-    title: "3D Virtual Gallery",
-    category: "Software",
-    year: "2026",
-    emoji: "🖼️",
-    accent: "#f59e0b",
-    blurb: "An interactive 3D gallery you can walk through, with poster walls — built in Three.js.",
-    description: [
-      "A browser-based 3D virtual gallery built with Three.js. Visitors move through a rendered space with poster walls to display work — an interactive way to present a collection or class project online."
-    ],
-    tags: ["Three.js", "WebGL", "3D", "Front-end"],
-    links: [
-      { label: "Notion",    href: "#" },
-      { label: "Live demo", href: "#" }
-    ]
-  },
-  {
-    id: "claybouquet",
-    title: "Clay Bouquet",
-    category: "Ventures",
-    year: "2025",
-    emoji: "💐",
-    accent: "#ec4899",
-    blurb: "A handmade clay-flower bouquet venture, modeled end-to-end with full unit economics and COGS.",
-    description: [
-      "A small maker venture creating handmade clay flower bouquets. Beyond the craft, I modeled the full unit economics — per-bouquet materials (clay, floral wire, wrap, ribbon), a waste allowance, and cost of goods sold.",
-      "The analysis lands around $5.70 in materials for a small bouquet and $9.60 for a medium, forming the basis for pricing and margin decisions."
-    ],
-    tags: ["Entrepreneurship", "Unit economics", "Maker"],
-    links: [
-      { label: "Notion", href: "#" }
-    ]
   }
 ];
 
@@ -204,8 +170,6 @@ const ICONS = {
   speedskating: '<path d="M22 12h-4l-3 9L9 3l-3 9H2"/>',
   pitchtrainer: '<path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><path d="M12 19v3"/>',
   journal: '<path d="M12 7v14"/><path d="M3 5a1 1 0 0 1 1-1h5a3 3 0 0 1 3 3 3 3 0 0 1 3-3h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3H4a1 1 0 0 1-1-1z"/>',
-  gallery: '<rect width="18" height="18" x="3" y="3" rx="1"/><circle cx="9" cy="9" r="2"/><path d="m21 15-4-4L7 21"/>',
-  claybouquet: '<circle cx="12" cy="12" r="2.2"/><path d="M12 9.8a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"/><path d="M14.2 12a2 2 0 1 0 4 0 2 2 0 0 0-4 0Z"/><path d="M5.8 12a2 2 0 1 0 4 0 2 2 0 0 0-4 0Z"/><path d="M12 14.2a2 2 0 1 0 0 4 2 2 0 0 0 0-4Z"/><path d="M12 16v6"/>',
 };
 
 const grid = document.getElementById("grid");
