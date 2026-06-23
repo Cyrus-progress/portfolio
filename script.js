@@ -199,16 +199,27 @@ const PROJECTS = [
    to touch it.
    ============================================================ */
 
+// Lucide-style SVG icons for projects WITHOUT a cover image (keyed by id).
+const ICONS = {
+  speedskating: '<path d="M22 12h-4l-3 9L9 3l-3 9H2"/>',
+  pitchtrainer: '<path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><path d="M12 19v3"/>',
+  journal: '<path d="M12 7v14"/><path d="M3 5a1 1 0 0 1 1-1h5a3 3 0 0 1 3 3 3 3 0 0 1 3-3h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3H4a1 1 0 0 1-1-1z"/>',
+  gallery: '<rect width="18" height="18" x="3" y="3" rx="1"/><circle cx="9" cy="9" r="2"/><path d="m21 15-4-4L7 21"/>',
+  claybouquet: '<circle cx="12" cy="12" r="2.2"/><path d="M12 9.8a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"/><path d="M14.2 12a2 2 0 1 0 4 0 2 2 0 0 0-4 0Z"/><path d="M5.8 12a2 2 0 1 0 4 0 2 2 0 0 0-4 0Z"/><path d="M12 14.2a2 2 0 1 0 0 4 2 2 0 0 0 0-4Z"/><path d="M12 16v6"/>',
+};
+
 const grid = document.getElementById("grid");
 const filtersEl = document.getElementById("filters");
 
-// Build the cover (image or coloured placeholder with emoji)
-function coverHTML(p, ctx) {
-  if (p.image) {
-    return `<div class="${ctx}__cover"><img src="${p.image}" alt="${p.title}" loading="lazy" /></div>`;
-  }
-  const grad = `linear-gradient(135deg, ${p.accent}22, ${p.accent}66)`;
-  return `<div class="${ctx}__cover ${ctx}__cover--placeholder" style="background:${grad}">${p.emoji || "✦"}</div>`;
+// Catalogue number from the project's position in PROJECTS (01, 02, …).
+function num(p) { return String(PROJECTS.indexOf(p) + 1).padStart(2, "0"); }
+
+// Cover contents: a real image, or an SVG icon over a faint technical grid.
+function coverInner(p) {
+  if (p.image) return `<img src="${p.image}" alt="${p.title}" loading="lazy" />`;
+  const icon = ICONS[p.id] || '<circle cx="12" cy="12" r="8"/>';
+  return `<div class="card__cover-grid"></div>` +
+    `<svg viewBox="0 0 24 24" fill="none" stroke="${p.accent || '#2563EB'}" stroke-width="1.4" stroke-linecap="square" stroke-linejoin="miter" aria-hidden="true">${icon}</svg>`;
 }
 
 function tagHTML(tags) {
@@ -216,6 +227,7 @@ function tagHTML(tags) {
 }
 
 function linksHTML(links) {
+  const arrow = `<svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>`;
   return links.map(l => {
     const pending = !l.href || l.href === "#";
     const cls = pending
@@ -224,7 +236,7 @@ function linksHTML(links) {
     const attrs = pending
       ? `href="#" onclick="return false;" title="Add this link in script.js"`
       : `href="${l.href}" target="_blank" rel="noopener"`;
-    return `<a class="${cls}" ${attrs}>${l.label}${pending ? "" : " ↗"}</a>`;
+    return `<a class="${cls}" ${attrs}>${l.label}${pending ? "" : arrow}</a>`;
   }).join("");
 }
 
@@ -237,8 +249,10 @@ function renderCards(filter) {
       const card = document.createElement("button");
       card.className = "card";
       card.setAttribute("aria-label", `Open ${p.title}`);
+      const coverCls = "card__cover" + (p.image ? "" : " card__cover--icon");
       card.innerHTML = `
-        ${coverHTML(p, "card")}
+        <span class="card__num">${num(p)}</span>
+        <div class="${coverCls}">${coverInner(p)}</div>
         <div class="card__body">
           <span class="card__meta">${p.category} · ${p.year}</span>
           <h3 class="card__title">${p.title}</h3>
@@ -271,22 +285,18 @@ function renderFilters() {
 // ---- modal ----
 const modal = document.getElementById("modal");
 const mCover = document.getElementById("modal-cover");
-const mMeta = document.getElementById("modal-meta");
+const mNum = document.getElementById("modal-num");
+const mCat = document.getElementById("modal-cat");
 const mTitle = document.getElementById("modal-title");
 const mDesc = document.getElementById("modal-desc");
 const mTags = document.getElementById("modal-tags");
 const mLinks = document.getElementById("modal-links");
 
 function openModal(p) {
-  mCover.className = "modal__cover";
-  if (p.image) {
-    mCover.innerHTML = `<img src="${p.image}" alt="${p.title}" />`;
-  } else {
-    mCover.classList.add("modal__cover--placeholder");
-    mCover.style.background = `linear-gradient(135deg, ${p.accent}22, ${p.accent}66)`;
-    mCover.innerHTML = p.emoji || "✦";
-  }
-  mMeta.textContent = `${p.category} · ${p.year}`;
+  mCover.className = "modal__cover" + (p.image ? "" : " modal__cover--icon");
+  mCover.innerHTML = coverInner(p);
+  mNum.textContent = num(p);
+  mCat.textContent = `${p.category} · ${p.year}`;
   mTitle.textContent = p.title;
   mDesc.innerHTML = p.description.map(d => `<p>${d}</p>`).join("");
   mTags.innerHTML = tagHTML(p.tags);
@@ -307,5 +317,6 @@ document.addEventListener("keydown", e => { if (e.key === "Escape") closeModal()
 
 // ---- init ----
 document.getElementById("year").textContent = new Date().getFullYear();
+document.getElementById("work-count").textContent = PROJECTS.length + " Projects";
 renderFilters();
 renderCards("All");

@@ -4,27 +4,33 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Cyrus Ho — Portfolio</title>
-  <meta name="description" content="Cyrus Ho — student researcher, short-track speed skater, and builder. mRNA delivery systems, AI health tools, full-stack apps, and community projects." />
+  <meta name="description" content="Cyrus Ho — student researcher, builder, and short-track speed skater from Vancouver, BC. mRNA delivery systems, AI health tools, full-stack apps, and community projects." />
 
-  <!-- Open Graph / social preview -->
   <meta property="og:title" content="Cyrus Ho — Portfolio" />
-  <meta property="og:description" content="Student researcher, short-track speed skater, and builder from Vancouver, BC." />
+  <meta property="og:description" content="Student researcher, builder, and short-track speed skater from Vancouver, BC." />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="assets/profile.jpg" />
 
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧬</text></svg>" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%230A0A0B'/><text x='16' y='23' font-family='monospace' font-size='20' font-weight='700' fill='%232563EB' text-anchor='middle'>C</text></svg>" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Exo:wght@400;500;600;700;800&family=Roboto+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <!-- ===================== NAV ===================== -->
   <header class="nav">
     <div class="nav__inner">
-      <a href="#top" class="nav__brand">Cyrus&nbsp;Ho</a>
-      <nav class="nav__links">
+      <a href="#top" class="nav__brand">CYRUS&nbsp;HO<span class="nav__brand-dot"></span></a>
+      <nav class="nav__links" aria-label="Primary">
         <a href="#work">Work</a>
         <a href="#about">About</a>
         <a href="#contact">Contact</a>
-        <a href="https://github.com/cyrus-progress" target="_blank" rel="noopener" class="nav__cta">GitHub ↗</a>
+        <a href="https://github.com/cyrus-progress" target="_blank" rel="noopener" class="nav__cta">GitHub
+          <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>
+        </a>
       </nav>
     </div>
   </header>
@@ -32,47 +38,76 @@
   <main>
     <!-- ===================== HERO ===================== -->
     <section id="top" class="hero">
-      <div class="hero__text">
-        <p class="hero__eyebrow">Vancouver, BC · Canada</p>
-        <h1 class="hero__name">Cyrus Ho</h1>
-        <p class="hero__tagline">Student researcher · short-track speed skater · builder</p>
-        <p class="hero__intro">
-          I'm a 16-year-old who works at the intersection of <strong>biotech and software</strong> —
-          designing mRNA delivery systems and therapies, shipping full-stack apps, and starting
-          community and maker projects along the way. Below is a selection of what I've built.
-        </p>
-        <div class="hero__actions">
-          <a href="#work" class="btn btn--primary">See my work</a>
-          <a href="mailto:syho.cyrus@gmail.com" class="btn btn--ghost">Get in touch</a>
+      <div class="container">
+        <div class="hero__ticker">
+          <span>Portfolio</span>
+          <span>Vancouver, BC</span>
+          <span>49.2827° N, 123.1207° W</span>
+          <span>Est. 2026</span>
         </div>
-      </div>
-      <div class="hero__photo">
-        <img src="assets/profile.jpg" alt="Portrait of Cyrus Ho" loading="eager" />
+
+        <div class="hero__grid">
+          <div class="hero__main">
+            <p class="kicker"><span class="kicker__mark"></span> Student researcher · builder · speed skater</p>
+            <h1 class="hero__name">Cyrus<br>Ho</h1>
+            <p class="hero__intro">
+              I'm a 16-year-old working at the intersection of <strong>biotech and software</strong> —
+              designing mRNA delivery systems and therapies, shipping full-stack apps, and starting
+              community and maker projects along the way.
+            </p>
+            <ul class="hero__domains">
+              <li>Biotech</li>
+              <li>Software</li>
+              <li>Research</li>
+              <li>Speed skating</li>
+            </ul>
+            <div class="hero__actions">
+              <a href="#work" class="btn btn--primary">
+                Selected work
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+              </a>
+              <a href="mailto:syho.cyrus@gmail.com" class="btn btn--ghost">Get in touch</a>
+            </div>
+          </div>
+
+          <div class="hero__media">
+            <figure class="frame">
+              <img src="assets/profile.jpg" alt="Portrait of Cyrus Ho" loading="eager" />
+              <figcaption>Fig. 01 — Cyrus Ho</figcaption>
+            </figure>
+          </div>
+        </div>
       </div>
     </section>
 
     <!-- ===================== WORK ===================== -->
     <section id="work" class="work">
-      <div class="section-head">
-        <h2 class="section-head__title">Selected work</h2>
-        <p class="section-head__sub">Click any project for the full story and links.</p>
-      </div>
+      <div class="container">
+        <div class="section-head">
+          <span class="section-head__index">01</span>
+          <h2 class="section-head__title">Selected work</h2>
+          <span class="section-head__count" id="work-count"></span>
+        </div>
 
-      <div class="filters" id="filters" role="tablist" aria-label="Filter projects by category"></div>
-      <div class="grid" id="grid"></div>
+        <div class="filters" id="filters" role="tablist" aria-label="Filter projects by category"></div>
+        <div class="grid" id="grid"></div>
+      </div>
     </section>
 
     <!-- ===================== ABOUT ===================== -->
     <section id="about" class="about">
-      <div class="about__inner">
-        <h2 class="section-head__title">About</h2>
-        <div class="about__cols">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-head__index">02</span>
+          <h2 class="section-head__title">About</h2>
+        </div>
+
+        <div class="about__grid">
           <div class="about__bio">
             <p>
               I like taking on hard problems from first principles — whether that's redesigning how
               mRNA vaccines survive without a freezer, or modeling the unit economics of a handmade
-              product. My background spans wet-lab-adjacent research, computational modeling, and
-              shipping real software.
+              product. My work spans research, computational modeling, and shipping real software.
             </p>
             <p>
               Past projects include <strong>CRISPR-edited vitamin-A rice</strong> and a
@@ -80,48 +115,64 @@
               coding, I'm on the ice training as a short-track speed skater.
             </p>
           </div>
-          <div class="about__skills">
-            <h3>What I work with</h3>
-            <ul class="chips">
+          <aside class="about__meta">
+            <h3 class="about__meta-title">Capabilities</h3>
+            <ul class="caplist">
               <li>mRNA / LNP design</li>
               <li>Computational modeling</li>
-              <li>React</li>
-              <li>TypeScript</li>
+              <li>React / TypeScript</li>
               <li>Node.js</li>
               <li>React Native / Expo</li>
               <li>PostgreSQL</li>
-              <li>Three.js</li>
+              <li>Three.js / WebGL</li>
               <li>AI / ML tooling</li>
               <li>Product &amp; UI design</li>
             </ul>
-          </div>
+          </aside>
         </div>
       </div>
     </section>
 
     <!-- ===================== CONTACT ===================== -->
     <section id="contact" class="contact">
-      <h2 class="section-head__title">Let's talk</h2>
-      <p class="contact__sub">Open to research collaborations, internships, and good problems.</p>
-      <div class="contact__links">
-        <a href="mailto:syho.cyrus@gmail.com" class="btn btn--primary">syho.cyrus@gmail.com</a>
-        <a href="https://github.com/cyrus-progress" target="_blank" rel="noopener" class="btn btn--ghost">GitHub ↗</a>
+      <div class="container">
+        <div class="section-head">
+          <span class="section-head__index">03</span>
+          <h2 class="section-head__title">Contact</h2>
+        </div>
+        <p class="contact__big">Open to research collaborations,<br>internships &amp; good problems.</p>
+        <div class="contact__links">
+          <a href="mailto:syho.cyrus@gmail.com" class="btn btn--primary">syho.cyrus@gmail.com</a>
+          <a href="https://github.com/cyrus-progress" target="_blank" rel="noopener" class="btn btn--ghost">
+            GitHub
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>
+          </a>
+        </div>
       </div>
     </section>
   </main>
 
   <footer class="footer">
-    <p>© <span id="year"></span> Cyrus Ho · Built and hosted on GitHub Pages</p>
+    <div class="container footer__inner">
+      <span>© <span id="year"></span> Cyrus Ho</span>
+      <span>Built &amp; hosted on GitHub Pages</span>
+      <span>Vancouver, BC · 49.2827° N</span>
+    </div>
   </footer>
 
   <!-- ===================== PROJECT MODAL ===================== -->
   <div class="modal" id="modal" aria-hidden="true">
     <div class="modal__backdrop" data-close></div>
     <div class="modal__panel" role="dialog" aria-modal="true" aria-labelledby="modal-title">
-      <button class="modal__close" data-close aria-label="Close">×</button>
+      <button class="modal__close" data-close aria-label="Close">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+      </button>
       <div class="modal__cover" id="modal-cover"></div>
       <div class="modal__body">
-        <p class="modal__meta" id="modal-meta"></p>
+        <div class="modal__meta">
+          <span class="modal__num" id="modal-num"></span>
+          <span id="modal-cat"></span>
+        </div>
         <h3 class="modal__title" id="modal-title"></h3>
         <div class="modal__desc" id="modal-desc"></div>
         <div class="modal__tags" id="modal-tags"></div>
