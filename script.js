@@ -71,6 +71,26 @@ const PROJECTS = [
     ]
   },
   {
+    id: "lantern",
+    title: "LANTERN — Research Paper Reproduction",
+    category: "Research",
+    year: "2026",
+    image: "assets/projects/lantern.jpg",
+    blurb: "An independent, from-scratch reproduction of a published ML model that predicts lipid-nanoparticle transfection efficiency from a molecule's structure — hitting the paper's headline R² and probing where it generalizes.",
+    description: [
+      "LANTERN (Mehradfar et al., 2025) predicts how efficiently a lipid nanoparticle delivers its cargo, straight from the molecule's structure. I re-implemented the entire pipeline from the paper's Methods — featurization, models, and training — using the authors' repository only as an answer key.",
+      "The headline MLP reproduces at R² = 0.812 ± 0.011 (paper: 0.816). I then went beyond the paper: a Murcko-scaffold probe showing the result is in-distribution only, added LightGBM and pretrained-GNN (GROVER) models and a scaffold-balanced split, and a 'no-leak' protocol that quantifies how much the authors' scaling inflates scores.",
+      "Ships with a full pytest/CI suite and an interactive explainer — a self-contained site with a High-School / Undergrad / PhD depth toggle and a live 'Try it' box that predicts a pasted SMILES string, served by a numpy-only FastAPI backend on a Hugging Face Space."
+    ],
+    tags: ["Machine learning", "Python", "PyTorch", "RDKit", "Cheminformatics", "Reproducibility"],
+    links: [
+      { label: "Notion",     href: "#" },
+      { label: "Live site",  href: "https://cyrus-progress.github.io/lantern-reproduction/" },
+      { label: "GitHub",     href: "https://github.com/Cyrus-progress/lantern-reproduction" },
+      { label: "Paper",      href: "https://arxiv.org/abs/2507.03209" }
+    ]
+  },
+  {
     id: "constructfinance",
     title: "ConstructFinance Pro",
     category: "Software",
